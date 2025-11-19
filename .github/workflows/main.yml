@@ -17,9 +17,9 @@ jobs:
       - name: simple python code hi
         run: python -c 'print("hi")'
           
-jobs:
   hello_job:
     needs: simple_python_hi
+    runs-on: ubuntu-latest
 
     steps:
       - name: python hello
