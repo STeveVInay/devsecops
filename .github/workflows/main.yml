@@ -3,7 +3,7 @@ name: simple python pipeline
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs: 
   simple_python_hi: 
