@@ -3,7 +3,7 @@ name: simple python pipeline
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs: 
   simple_python_hi: 
@@ -17,3 +17,10 @@ jobs:
       - name: simple python code hi
         run: python -c 'print("hi")'
           
+jobs:
+  hello_job:
+    needs: simple_python_hi
+
+    steps:
+      - name: python hello
+        run: python -c 'print("hi")'
