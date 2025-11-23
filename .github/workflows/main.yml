@@ -7,7 +7,7 @@ on:
 
 jobs: 
   simple_python_hi: 
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       # Checkout the repository
@@ -19,7 +19,7 @@ jobs:
           
   hello_job:
     needs: simple_python_hi
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: python hello
