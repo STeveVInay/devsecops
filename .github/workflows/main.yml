@@ -10,12 +10,11 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      # Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v3
 
       - name: simple python code hi
-        run: python -c 'print("hi")'
+        run: python3 -c 'print("hi")'
           
   hello_job:
     needs: simple_python_hi
@@ -23,4 +22,4 @@ jobs:
 
     steps:
       - name: python hello
-        run: python -c 'print("hi")'
+        run: python3 -c 'print("hi")'
