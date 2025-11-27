@@ -1,0 +1,12 @@
+
+name: DevSecOps Pipeline
+on: push
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run CodeQL Analysis
+        uses: github/codeql-action/init@v2
+      - name: Build
+        run: npm install && npm run build
