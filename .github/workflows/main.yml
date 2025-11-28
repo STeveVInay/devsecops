@@ -1,25 +1,14 @@
-name: simple python pipeline
+name: Custom Dispatch Listener
 
 on:
-  push:
-    branches:
-      - master
+  repository_dispatch:
+    types: [run-tests, deploy-to-prod]  # Optional filtering
 
-jobs: 
-  simple_python_hi: 
-    runs-on: self-hosted
-
+jobs:
+  run:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: simple python code hi
-        run: python3 -c 'print("hi")'
-          
-  hello_job:
-    needs: simple_python_hi
-    runs-on: self-hosted
-
-    steps:
-      - name: python hello
-        run: python3 -c 'print("hi")'
+      - name: Echo the payload
+        run: |
+          echo "Event type: ${{ github.event.action }}"
+          echo "Payload value: ${{ github.event.client_payload.env }}"
