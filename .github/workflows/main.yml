@@ -1,4 +1,4 @@
-name: Custom Dispatch Listener
+name: Listener
 
 on:
   repository_dispatch:
